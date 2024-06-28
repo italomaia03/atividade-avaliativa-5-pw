@@ -1,0 +1,33 @@
+{
+  "name": "atividade-avaliativa-5-pw",
+  "version": "1.0.0",
+  "description": "Atividade avaliativa da disciplina de Programação Web",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/italomaia03/atividade-avaliativa-5-pw.git"
+  },
+  "keywords": [
+    "express.js",
+    "back-end",
+    "educacional"
+  ],
+  "author": "Ítalo F. O. Maia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/italomaia03/atividade-avaliativa-5-pw/issues"
+  },
+  "homepage": "https://github.com/italomaia03/atividade-avaliativa-5-pw#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongodb": "^6.7.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.4.4"
+  }
+}
