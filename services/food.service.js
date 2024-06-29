@@ -5,7 +5,7 @@ async function createFood(data) {
   return await newFood.save();
 }
 
-async function getAllFood() {
+async function listFoods() {
   return await model.find();
 }
 
@@ -24,6 +24,7 @@ async function deleteFood(id) {
 module.exports = {
   createFood,
   getOneFood,
+  listFoods,
   updateFood,
   deleteFood,
 };
