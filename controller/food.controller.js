@@ -8,10 +8,20 @@ async function createFood(req, res, next) {
     const response = new FoodResponseDto(result);
     res.status(201).json({ ...response });
   } catch (error) {
-    next(error, res);
+    next(error);
+  }
+}
+
+async function listFoods(_req, res, next) {
+  try {
+    const result = await foodService.listFoods();
+    res.status(200).json({ food: result });
+  } catch (error) {
+    next(error);
   }
 }
 
 module.exports = {
   createFood,
+  listFoods,
 };
