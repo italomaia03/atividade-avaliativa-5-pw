@@ -8,5 +8,6 @@ router.post("/foods", validateFood, controller.createFood);
 router.get("/foods", controller.listFoods);
 router.get("/foods/:id", controller.listFoodById);
 router.put("/foods/:id", validateFood, controller.updateFoods);
+router.delete("/foods/:id", controller.deleteFood);
 
 module.exports = router;
