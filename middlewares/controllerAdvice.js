@@ -14,7 +14,7 @@ class ControllerAdvice {
     } else if (error.name === "CastError") {
       res.status(400).json({ error: `${error.message}` });
     } else {
-      res.status(500).json({ error: error });
+      res.status(500).json(error);
     }
   }
 }
