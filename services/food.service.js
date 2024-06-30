@@ -23,11 +23,16 @@ async function updateFood(id, data) {
   if (!food) {
     throw new NotFoundError("Food not found");
   }
-  return food;
+  food.$set(data);
+  return food.save();
 }
 
 async function deleteFood(id) {
-  return await model.findByIdAndDelete(id);
+  const food = model.findById(id);
+  if (!food) {
+    throw new NotFoundError("Food not found");
+  }
+  await model.deleteOne();
 }
 
 module.exports = {
