@@ -21,7 +21,32 @@ async function listFoods(_req, res, next) {
   }
 }
 
+async function listFoodById(req, res, next) {
+  try {
+    const { id } = req.params;
+    const result = await foodService.getOneFood(id);
+    const response = new FoodResponseDto(result);
+    res.status(200).json({ response });
+  } catch (error) {
+    next(error);
+  }
+}
+
+async function updateFoods(req, res, next) {
+  try {
+    const { id } = req.params;
+    const data = req.body;
+    const result = await foodService.updateFood(id, data);
+    const response = new FoodResponseDto(result);
+    res.status(200).json(response);
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   createFood,
   listFoods,
+  listFoodById,
+  updateFoods,
 };
