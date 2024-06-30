@@ -47,9 +47,20 @@ async function updateFoods(req, res, next) {
   }
 }
 
+async function deleteFood(req, res, next) {
+  try {
+    const { id } = req.params;
+    await foodService.deleteFood(id);
+    res.status(204).json();
+  } catch (error) {
+    next(error);
+  }
+}
+
 module.exports = {
   createFood,
   listFoods,
   listFoodById,
   updateFoods,
+  deleteFood,
 };
