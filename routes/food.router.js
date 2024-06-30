@@ -6,5 +6,7 @@ const controller = require("../controller/food.controller");
 
 router.post("/foods", validateFood, controller.createFood);
 router.get("/foods", controller.listFoods);
+router.get("/foods/:id", controller.listFoodById);
+router.put("/foods/:id", validateFood, controller.updateFoods);
 
 module.exports = router;
