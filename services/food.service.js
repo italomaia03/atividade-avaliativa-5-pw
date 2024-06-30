@@ -1,3 +1,4 @@
+const NotFoundError = require("../errors/notFound.error");
 const model = require("../models/food.models");
 
 async function createFood(data) {
@@ -10,11 +11,19 @@ async function listFoods() {
 }
 
 async function getOneFood(id) {
-  return await model.findById(id);
+  const result = await model.findById(id);
+  if (!result) {
+    throw new NotFoundError("Food not found");
+  }
+  return result;
 }
 
 async function updateFood(id, data) {
-  return await model.findByIdAndUpdate(id, data);
+  const food = await model.findById(id);
+  if (!food) {
+    throw new NotFoundError("Food not found");
+  }
+  return food;
 }
 
 async function deleteFood(id) {
