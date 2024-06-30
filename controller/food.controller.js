@@ -14,8 +14,11 @@ async function createFood(req, res, next) {
 
 async function listFoods(_req, res, next) {
   try {
-    const result = await foodService.listFoods();
-    res.status(200).json({ food: result });
+    let result = await foodService.listFoods();
+    if (result.length > 0) {
+      result = result.map((food) => new FoodResponseDto(food));
+    }
+    res.status(200).json(result);
   } catch (error) {
     next(error);
   }
